@@ -36,7 +36,10 @@ foreach ($this->objparams['form_output'] as $index => $field) {
     }
     else {
         /** customize column if needed */
-        echo '<div class="yform-col" style="width:100%;">' . $field . '</div>';
+        if ('fieldset' == $this->objparams['values'][$index]->type)
+          echo $field; 
+        else
+          echo '<div class="yform-col" style="width:100%;">' . $field . '</div>'; 
     }
 
     if ($i + 1 === $formOutputCount && !$hasSubmit) {
